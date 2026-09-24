@@ -1,0 +1,17 @@
+fastapi>=0.115
+uvicorn>=0.30
+langchain-core>=0.3
+langchain-groq>=1.0
+langchain-text-splitters>=0.3
+fastembed>=0.5
+numpy>=1.26
+pypdf>=5.0
+pypdfium2>=4.30
+docx2txt>=0.8
+python-pptx>=1.0
+openpyxl>=3.1
+pytesseract>=0.3.10
+pillow>=10.0
+watchdog>=5.0
+python-dateutil>=2.9
+pydantic>=2.7
