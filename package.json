@@ -1,0 +1,37 @@
+{
+  "name": "unlost",
+  "productName": "unlost",
+  "version": "0.1.0",
+  "description": "Search your computer by describing what you remember.",
+  "main": "out/main/index.js",
+  "author": "unlost",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node scripts/dev.mjs dev",
+    "start": "npm run build && node scripts/dev.mjs preview",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "sidecar:setup": "node scripts/py.mjs --setup",
+    "sidecar:test": "node scripts/py.mjs -m pytest sidecar/tests -q",
+    "sidecar:bundle": "cd sidecar && node ../scripts/py.mjs -m PyInstaller unlost-sidecar.spec --distpath dist --workpath build --noconfirm",
+    "dist": "npm run build && npm run sidecar:bundle && electron-builder",
+    "demo:files": "node scripts/py.mjs scripts/make_demo.py"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "playwright-core": "^1.63.0",
+    "typescript": "^7.0.2",
+    "vite": "^7.3.6"
+  }
+}
