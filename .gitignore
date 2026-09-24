@@ -1,0 +1,12 @@
+node_modules/
+out/
+dist/
+release/
+*.log
+sidecar/.venv/
+sidecar/build/
+sidecar/dist/
+__pycache__/
+.pytest_cache/
+.env
+*.tsbuildinfo
