@@ -1,0 +1,17 @@
+appId: app.unlost.desktop
+productName: unlost
+directories:
+  output: release
+files:
+  - out/**
+extraResources:
+  # PyInstaller one-folder build of the Python sidecar (npm run sidecar:bundle)
+  - from: sidecar/dist/unlost-sidecar
+    to: sidecar
+win:
+  target: nsis
+mac:
+  target: dmg
+  category: public.app-category.productivity
+linux:
+  target: AppImage
