@@ -12,7 +12,7 @@ type Mode = 'find' | 'ask'
 const FIND_EXAMPLES = [
   'that invoice I sent in March',
   'the photo of my WAEC certificate',
-  'the PDF about Canadian study permits',
+  "the slides from last week's meeting",
   'screenshot of my flight booking'
 ]
 const ASK_EXAMPLES = [

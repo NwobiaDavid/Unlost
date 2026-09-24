@@ -2,7 +2,7 @@
 
 Search your computer by describing what you remember.
 
-> "that invoice I sent in March" · "the photo of my WAEC certificate" · "the PDF about Canadian study permits"
+> "that invoice I sent in March" · "the photo of my WAEC certificate" · "the slides from last week's meeting"
 
 unlost finds the file even when it's called `IMG_4821.jpg` or `document(3).pdf`, because it searches what's
 *inside* your files: text in PDFs, Word, PowerPoint and Excel files, and text read from screenshots, photos
