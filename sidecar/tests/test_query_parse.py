@@ -33,7 +33,7 @@ def test_may_is_not_a_month_as_a_verb():
 
 def test_kinds():
     assert parse("the photo of my WAEC certificate").kinds == {"image"}
-    assert parse("the PDF about Canadian study permits").kinds == {"pdf"}
+    assert parse("the PDF about my car insurance").kinds == {"pdf"}
     pq = parse("screenshot of the flight booking")
     assert pq.kinds == {"image"} and pq.wants_screenshot
     assert parse("my budget spreadsheet").kinds == {"sheet"}

@@ -16,10 +16,10 @@ def main() -> None:
     root.mkdir(parents=True, exist_ok=True)
 
     make_pdf(root / "document(3).pdf", [
-        "Study in Canada: how to apply for a study permit",
-        "Immigration, Refugees and Citizenship Canada (IRCC) requires a letter of acceptance",
-        "from a designated learning institution, proof of funds, and a valid passport.",
-        "Processing times vary by country; apply at least 3 months before your program starts.",
+        "Motor Insurance Policy - Comprehensive Cover",
+        "Insured vehicle: Toyota Corolla 2018, registration LSR 482 KJ",
+        "Policy period: 01 Feb 2026 to 31 Jan 2027. Annual premium: N185,000.",
+        "Report any accident or theft within 30 days to make a claim.",
     ])
     make_text_image(root / "IMG_4821.png", [
         "WEST AFRICAN EXAMINATIONS COUNCIL",

@@ -30,18 +30,18 @@ def test_local_suggestions_apply_and_undo(app_state, messy_folder: Path):
     assert "notes.md" not in by_name and "rent-march.txt" not in by_name
     assert by_name["Untitled.docx"]["folder"] == "Finance"
     assert by_name["IMG_4821.png"]["folder"] == "Education"
-    assert by_name["document(3).pdf"]["folder"] == "Travel & Immigration"
+    assert by_name["document(3).pdf"]["folder"] == "Finance"
 
     item = by_name["document(3).pdf"]
-    res = organize.apply(db, cfg, idx, str(messy_folder), [{**item, "new_name": "Canada Study Permit Guide.pdf"}])
-    dest = messy_folder / "Travel & Immigration" / "Canada Study Permit Guide.pdf"
+    res = organize.apply(db, cfg, idx, str(messy_folder), [{**item, "new_name": "Car Insurance Policy 2026.pdf"}])
+    dest = messy_folder / "Finance" / "Car Insurance Policy 2026.pdf"
     assert res["skipped"] == [] and dest.exists() and not (messy_folder / "document(3).pdf").exists()
     row = db.one("SELECT path FROM files WHERE id=?", (item["file_id"],))
     assert row["path"] == str(dest)  # same index entry, new location
 
     assert organize.undo(db, idx, res["batch_id"])["restored"] == 1
     assert (messy_folder / "document(3).pdf").exists()
-    assert not (messy_folder / "Travel & Immigration").exists()
+    assert not (messy_folder / "Finance").exists()
 
 
 def test_apply_never_overwrites_and_rejects_outside_root(app_state, messy_folder: Path, tmp_path: Path):

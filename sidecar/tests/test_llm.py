@@ -65,10 +65,10 @@ def test_ai_organize_uses_model_suggestions(app_state, messy_folder, monkeypatch
 
     def fake_structured(cfg, schema):
         return RunnableLambda(lambda _: schema(items=[organize.Suggestion(
-            file_id=fid, new_name="Canada Study Permit Guide", folder="Immigration", reason="IRCC guide")]))
+            file_id=fid, new_name="Car Insurance Policy 2026", folder="Insurance", reason="Motor insurance policy")]))
 
     monkeypatch.setattr(llm, "structured", fake_structured)
     out = organize.suggest(db, cfg, str(messy_folder))
     assert out["used_ai"] is True
     item = next(i for i in out["items"] if i["file_id"] == fid)
-    assert (item["new_name"], item["folder"]) == ("Canada Study Permit Guide.pdf", "Immigration")
+    assert (item["new_name"], item["folder"]) == ("Car Insurance Policy 2026.pdf", "Insurance")

@@ -31,9 +31,9 @@ MESSY = re.compile(
 COPY_SUFFIX = re.compile(r"\s*(\(\d+\)|-\s*copy|\scopy(\s\d+)?)$", re.I)
 
 CATEGORIES = [
-    ("Finance", r"invoice|receipt|payment|bank|statement|rent|salary|payslip|tax|bill|transaction|amount due|paid"),
+    ("Finance", r"invoice|receipt|payment|bank|statement|rent|salary|payslip|tax|bill|transaction|amount due|paid|insurance|premium"),
     ("Education", r"certificate|waec|jamb|neco|transcript|school|university|college|exam|result|degree|admission"),
-    ("Travel & Immigration", r"passport|visa|permit|immigration|ircc|embassy|flight|boarding|itinerary|travel"),
+    ("Travel & Immigration", r"passport|visa|permit|immigration|embassy|flight|boarding|itinerary|travel"),
     ("Work", r"resume|curriculum vitae|\bcv\b|offer letter|contract|employment|meeting|proposal|project"),
     ("IDs & Personal", r"national id|identity|driver'?s licen[cs]e|birth certificate|nin\b|bvn|medical|hospital"),
 ]
@@ -55,7 +55,7 @@ subfolder, based on what the file actually contains.
 
 Names: 2-8 words in Title Case, naming the specific thing and who or what it's for, plus the month or year \
 when the content shows it, e.g. "Rent Receipt - March 2025", "WAEC Certificate - Ada Obi", \
-"Canada Study Permit Guide". No file extension, no slashes or other characters that are invalid in filenames.
+"Car Insurance Policy 2026". No file extension, no slashes or other characters that are invalid in filenames.
 
 Folders: reuse one of the existing folders listed when it fits; otherwise use a short, broad category such \
 as Finance, Education, Travel & Immigration, Work, IDs & Personal, Photos, or Screenshots. Keep the number of \
@@ -159,7 +159,7 @@ def _title_from_text(text: str) -> str:
         words = re.findall(r"[A-Za-z][A-Za-z'&]+|\d{2,}", line)
         if len(words) >= 2 and sum(len(w) for w in words) >= 8:
             shouting = sum(w.isupper() for w in words) > len(words) / 2
-            # Keep real acronyms (WAEC, IRCC) but don't carry over an all-caps heading.
+            # Keep real acronyms (WAEC, NIN) but don't carry over an all-caps heading.
             return " ".join(w if w.isupper() and len(w) <= 5 and not shouting else w.capitalize() for w in words[:6])
     return ""
 

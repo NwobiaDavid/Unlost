@@ -27,9 +27,9 @@ def test_photo_found_by_text_in_it(app_state):
 
 def test_pdf_found_by_topic_not_name(app_state):
     *_, searcher = app_state
-    res = searcher.search("the PDF about Canadian study permits")
+    res = searcher.search("the PDF about my car insurance")
     assert names(res)[0] == "document(3).pdf"
-    assert "permit" in res[0]["snippet"].lower()
+    assert "insurance" in res[0]["snippet"].lower()
 
 
 def test_date_and_content_find_invoice(app_state):

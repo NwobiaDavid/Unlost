@@ -38,7 +38,7 @@ def test_settings_search_and_ask_without_key(client, messy_folder):
         time.sleep(0.1)
     assert st["files"] == 7 and st["has_api_key"] is False
 
-    res = c.get("/search", params={"q": "study permit canada"}).json()["results"]
+    res = c.get("/search", params={"q": "car insurance policy"}).json()["results"]
     assert res[0]["name"] == "document(3).pdf"
     assert c.get(f"/thumb/{res[0]['id']}").headers["content-type"] == "image/jpeg"
     assert c.get(f"/files/{res[0]['id']}").json()["kind"] == "pdf"
