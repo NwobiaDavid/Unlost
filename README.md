@@ -8,6 +8,10 @@ so it finds `IMG_4821.jpg` or `document(3).pdf` without you knowing the name. Yo
 across your files and get answers that cite their sources, and tidy up messy folders with undoable
 rename suggestions.
 
+![Find: searching by description](docs/find.png)
+
+![Ask: answers with cited sources](docs/ask.png)
+
 ## How it works
 
 An Electron + React app talks to a local Python sidecar (FastAPI) that indexes your folders, runs OCR with
