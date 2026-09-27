@@ -1,4 +1,4 @@
-// Starts electron-vite with a clean environment. Some editors (VS Code's extension host, Claude Code)
+// Starts electron-vite with a clean environment. Some editors (e.g. VS Code's extension host)
 // export ELECTRON_RUN_AS_NODE=1, which makes Electron behave like plain Node and fail with "bad option".
 import { spawn } from 'node:child_process'
 
