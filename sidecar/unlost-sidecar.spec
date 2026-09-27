@@ -4,7 +4,7 @@
 from PyInstaller.utils.hooks import collect_all, collect_submodules
 
 datas, binaries, hiddenimports = [], [], []
-for pkg in ("fastembed", "onnxruntime", "tokenizers", "langchain_anthropic", "langchain_core", "pypdfium2", "pptx"):
+for pkg in ("fastembed", "onnxruntime", "tokenizers", "langchain_groq", "langchain_core", "pypdfium2", "pptx"):
     d, b, h = collect_all(pkg)
     datas += d
     binaries += b
